@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Navbar } from '../components/Navbar';
 
 
 
@@ -9,10 +10,12 @@ export const AllUsers = () => {
     const [users,setUsers] = useState([]);
     const [idData,setIdData] = useState('');
     const [toggle,setToggle] = useState(false);
+
     const getUsers = () => {
         axios.get(`http://localhost:8080/userData`)
         .then((res)=>{setUsers(res.data)})
     }
+
 
     const deleteUser = (id) => {
         axios.delete(`http://localhost:8080/userData/${id}`)
@@ -23,6 +26,7 @@ export const AllUsers = () => {
         setIdData('')
         setToggle(!toggle)
     }
+
     useEffect(()=>{
         getUsers();
     },[toggle])
@@ -30,6 +34,7 @@ export const AllUsers = () => {
 
   return (
     <div>
+        <Navbar />
         All Users
         <div>
             <center>

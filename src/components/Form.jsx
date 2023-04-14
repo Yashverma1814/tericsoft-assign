@@ -34,6 +34,12 @@ export const Form = () => {
         }
         axios.post(`http://localhost:8080/userData`,data)
         .then((res)=>{console.log(res)})
+        setName('')
+        setEmail('')
+        setPhone('')
+        setDate('')
+        setGender('')
+        setHobbies([])
     }
 
   return (
